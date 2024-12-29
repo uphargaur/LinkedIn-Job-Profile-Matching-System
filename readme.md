@@ -1,30 +1,34 @@
 # LinkedIn Job/Profile Matching System
 
-A scalable system that crawls LinkedIn jobs and profiles, stores them in a database, and provides APIs to match jobs with profiles using advanced matching algorithms.
+A scalable system that crawls LinkedIn jobs and profiles, stores them in a database, and provides APIs to match jobs with profiles using advanced matching algorithms. Built with FastAPI, MongoDB, and modern matching algorithms.
 
-## Table of Contents
-- [Features](#features)
-- [System Architecture](#system-architecture)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Database Schema](#database-schema)
-- [Testing](#testing)
-- [Scalability](#scalability)
-- [Contributing](#contributing)
-- [License](#license)
+## Author
+
+**Uphar Gaur**
+- 🎓 B.Tech in Computer Science Engineering, IIIT Una
+- 💻 Backend Developer (Golang) at JhalaXCorp
+- 📱 Android Developer with experience at Humors Tech and SaralX
+- 🔗 [LinkedIn](https://www.linkedin.com/in/your-profile) | [GitHub](https://github.com/yourusername)
+- 📧 Contact: uphargaur@gmail.com
 
 ## Features
 
-- 🔍 Crawls LinkedIn jobs and profiles using Selenium
-- 💾 Stores data in MongoDB with optimized indexing
+- 🔍 Intelligent job and profile crawling system using Selenium
+- 💾 MongoDB-based data storage with optimized indexing
 - 🔄 Real-time matching algorithm using TF-IDF and semantic analysis
 - 🚀 RESTful API built with FastAPI
-- 📊 Scoring system based on skills, location, and experience
-- ⚡ Handles rate limiting and anti-bot mechanisms
-- 📈 Scales to handle 1000 QPS with 100 concurrent users
+- 📊 Advanced scoring system for profile matching
+- ⚡ Rate limiting and anti-bot handling
+- 📈 Scalable architecture supporting 1000 QPS
+
+## Tech Stack
+
+- **Backend**: FastAPI, Python
+- **Database**: MongoDB
+- **Web Crawling**: Selenium, BeautifulSoup
+- **Cloud**: AWS EC2
+- **DevOps**: Docker, GitHub Actions
+- **Additional Tools**: Git, Linux
 
 ## System Architecture
 
@@ -59,7 +63,7 @@ A scalable system that crawls LinkedIn jobs and profiles, stores them in a datab
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/linkedin-matcher.git
+git clone https://github.com/uphargaur/linkedin-matcher.git
 cd linkedin-matcher
 ```
 
@@ -106,27 +110,9 @@ mongod --dbpath /path/to/data/db
 python scripts/create_indexes.py
 ```
 
-## Usage
+## API Documentation
 
-### Starting the API Server
-
-```bash
-uvicorn api.main:app --reload --workers 4 --host 0.0.0.0 --port 8000
-```
-
-### Running the Crawler
-
-```bash
-# Crawl jobs
-python -m crawler.job_crawler
-
-# Crawl profiles
-python -m crawler.profile_crawler
-```
-
-### API Endpoints
-
-#### Get Matching Profiles
+### Get Matching Profiles
 ```http
 GET /api/profiles/search
 ```
@@ -140,7 +126,7 @@ Example:
 curl -X GET "http://localhost:8000/api/profiles/search?designation=Software%20Engineer&location=San%20Francisco&company=Google"
 ```
 
-#### Get Matching Jobs
+### Get Matching Jobs
 ```http
 GET /api/jobs/search
 ```
@@ -151,61 +137,15 @@ Parameters:
 - `location`: Geographic location
 - `preferences`: Additional preferences (optional)
 
-Example:
-```bash
-curl -X GET "http://localhost:8000/api/jobs/search?experience=5&job_function=Engineering&designation=Senior%20Software%20Engineer&location=New%20York"
-```
+## Scalability Features
 
-## Database Schema
+Leveraging my experience at JhalaXCorp where I improved backend efficiency:
 
-### Jobs Collection
-```javascript
-{
-  "_id": ObjectId,
-  "title": String,
-  "company": String,
-  "location": String,
-  "description": String,
-  "skills": Array<String>,
-  "requirements": {
-    "experience": Number,
-    "education": String,
-    "skills": Array<String>
-  },
-  "posted_date": Date,
-  "url": String,
-  "metadata": {
-    "crawled_at": Date,
-    "last_updated": Date
-  }
-}
-```
-
-### Profiles Collection
-```javascript
-{
-  "_id": ObjectId,
-  "name": String,
-  "title": String,
-  "location": String,
-  "current_company": String,
-  "skills": Array<String>,
-  "experience": [{
-    "title": String,
-    "company": String,
-    "duration": {
-      "start": Date,
-      "end": Date
-    },
-    "description": String
-  }],
-  "url": String,
-  "metadata": {
-    "crawled_at": Date,
-    "last_updated": Date
-  }
-}
-```
+- AWS EC2 deployment with optimized instance configuration
+- Efficient MongoDB indexing for fast queries
+- Caching layer for frequent requests
+- Rate limiting and request throttling
+- Horizontal scaling support
 
 ## Testing
 
@@ -214,25 +154,20 @@ Run tests using pytest:
 # Run all tests
 pytest
 
-# Run specific test file
-pytest tests/test_matching_engine.py
-
 # Run with coverage report
 pytest --cov=app tests/
 ```
 
-## Scalability
+## Development Practices
 
-### System Capabilities
-- Handles 1000 QPS with 100 concurrent users
-- Efficient database indexing for fast queries
-- Caching layer for frequent requests
-- Horizontal scaling support
+Based on my experience in developing scalable applications:
 
-### Limitations
-- LinkedIn's anti-scraping measures
-- Rate limiting on crawling
-- Data freshness challenges
+- Clean, modular code architecture
+- Comprehensive error handling
+- Detailed API documentation
+- Regular security updates
+- Performance optimization
+- Continuous Integration using GitHub Actions
 
 ## Contributing
 
@@ -250,19 +185,11 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 🚧 Under active development
 
-## Authors
+## Contact
 
-- Your Name - Initial work - [YourGithub](https://github.com/yourusername)
+Uphar Gaur - uphargaur@gmail.com
 
-## Acknowledgments
-
-- LinkedIn for providing the platform
-- FastAPI for the excellent web framework
-- MongoDB for the robust database system
-
-## Support
-
-For support, email fake@example.com or join our Slack channel.
+Project Link: [https://github.com/uphargaur/linkedin-matcher](https://github.com/uphargaur/linkedin-matcher)
 
 ---
-Made with ❤️ by [Your Name/Company]
+Built with ❤️ by Uphar Gaur
